@@ -1,0 +1,26 @@
+// Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String   @id @default(cuid())
+  username          String
+  displayName       String
+  bio               String
+  email             String?
+  websiteUrl        String?
+  tokenVersion      Int      @default(1)
+  githubId          String?
+  githubAccessToken String?
+  createdAt         DateTime @default(now()) @db.Timestamptz()
+  updatedAt         DateTime @updatedAt @db.Timestamptz()
+
+  @@map("users")
+}

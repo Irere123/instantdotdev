@@ -1,3 +1,4 @@
+import "dotenv-safe/config";
 import express from "express";
 import { createServer } from "node:http";
 import { useServer } from "graphql-ws/lib/use/ws";
